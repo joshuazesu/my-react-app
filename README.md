@@ -1,4 +1,4 @@
-# ❌ TicTacToe ⭕
+# 🧩 TicTacToe
 
 The classic TicTacToe game built with React and Javascript.
 This is my first GitHub project - just a fun way to learn and practice.
