@@ -16,12 +16,12 @@ const TicTacToe = () => {
             return 0;
         }
         if (count%2===0){
-            e.target.innerHTML = `<img src='${cross_icon}'>`;
+            e.target.innerHTML = `<img src=${cross_icon}>`;
             data[num]='x';
             setCount(++count);
         }
         else{
-            e.target.innerHTML = `<img src='${circle_icon}'>`;
+            e.target.innerHTML = `<img src=${circle_icon}>`;
             data[num]='o';
             setCount(++count);
         }
@@ -72,12 +72,18 @@ const TicTacToe = () => {
         setLock(true);
         if (winner==="x")
         {
-            titleRef.current.innerHTML = `Congratulations: <img src=${cross_icon}`;
+            titleRef.current.innerHTML = `Congratulations: <img src=${cross_icon}> Wins!`;
         }
         else
         {
-            titleRef.current.innerHTML = `Congratulations: <img src=${circle_icon}`;
+            titleRef.current.innerHTML = `Congratulations: <img src=${circle_icon}> Wins!`;
         }
+    }
+
+    const reset = () => {
+        setLock(false);
+        data = ["", "", "", "", "", "", "", "", ""];
+        titleRef.current.innerHTML = 'Tic Tac Toe Game In <span>React</span>'
     }
 
     return (
@@ -100,7 +106,7 @@ const TicTacToe = () => {
                     <div className='boxes' onClick={(e)=>{toggle(e,8)}}></div>
                 </div>
             </div>
-            <button className='reset'>Reset</button>
+            <button className='reset' onClick={()=>{reset()}}>Reset</button>
         </div>
     )
 }
